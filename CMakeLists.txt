@@ -19,14 +19,14 @@ target_include_directories(bbhutil PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
-set(HEADERS bbhutil.h bbhutil_f.h bbhutil_f.i sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h)
+set(HEADERS bbhutil.h bbhutil_f.h sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h)
 set_target_properties(bbhutil PROPERTIES
     PUBLIC_HEADER "${HEADERS}")
 get_target_property(bbhutil_compile_opts bbhutil COMPILE_OPTIONS)
 
 add_custom_command(
     OUTPUT bbhutil_f.c
-    COMMAND ${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS}  ${bbhutil_compile_opts} -o bbhutil_f.c -E bbhutil.c
+    COMMAND ${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} ${bbhutil_compile_opts} -o bbhutil_f.c -E bbhutil.c
     COMMAND ${PERL} ${CTOF} bbhutil_f.i bbhutil_f.c ${BBH_SYSTEM} bbhutil
 )
 add_custom_command(
@@ -34,10 +34,7 @@ add_custom_command(
     COMMAND ${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS}  ${bbhutil_compile_opts} -o sdf_f.c -E sdf.c
     COMMAND ${PERL} ${CTOF} sdf_f.i sdf_f.c ${BBH_SYSTEM} sdf
 )
-set_property(SOURCE sdf_f.i PROPERTY LANGUAGE C)
-set_property(SOURCE bbhutil_f.i PROPERTY LANGUAGE C)
-
-target_sources(bbhutil PRIVATE bbhutil_f.c sdf_f.c bbhutil_f.i sdf_f.i)
+target_sources(bbhutil PRIVATE bbhutil_f.c sdf_f.c)
 
 add_custom_command(
     OUTPUT gpar.tab.c
