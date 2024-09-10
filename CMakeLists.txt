@@ -4,9 +4,9 @@ project(bbhutil LANGUAGES C VERSION 1.0.0)
 
 include(GNUInstallDirs)
 
-option(PRE_GENERATED "Use pregenerated files" ON)
+option(USE_GENERATED_FILES "Use pregenerated files" OFF)
 
-if (NOT PRE_GENERATED)
+if (NOT USE_GENERATED_FILES)
 find_program(PERL perl)
 find_program(YACC yacc)
 find_program(LEX lex)
@@ -17,7 +17,7 @@ message(STATUS "LEX: ${LEX}")
 
 if (NOT PERL OR NOT YACC OR NOT LEX)
     message(FATAL_ERROR "Perl or YACC or LEX not found, use pregenerated files")
-    set(PRE_GENERATED ON)
+    set(USE_GENERATED_FILES ON)
 endif()
 
 set(CTOF "${CMAKE_CURRENT_SOURCE_DIR}/mfi" CACHE STRING "CTOF")
@@ -52,7 +52,7 @@ set(HEADERS bbhutil.h bbhutil_f.h sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h "${CM
 set_target_properties(bbhutil PROPERTIES
     PUBLIC_HEADER "${HEADERS}")
 
-if (NOT PRE_GENERATED)
+if (NOT USE_GENERATED_FILES)
 add_custom_command(
     OUTPUT bbhutil_f.c
     COMMAND "${CMAKE_C_COMPILER}" -E "${CMAKE_C_FLAGS}" -I "${CMAKE_CURRENT_SOURCE_DIR}" -o "${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.i" "${CMAKE_CURRENT_SOURCE_DIR}/bbhutil_f.h"
