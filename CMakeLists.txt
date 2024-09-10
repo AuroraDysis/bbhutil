@@ -4,7 +4,7 @@ project(bbhutil LANGUAGES C)
 
 include(GNUInstallDirs)
 
-set(CTOF ${CMAKE_CURRENT_SOURCE_DIR}/mfi CACHE STRING "CTOF")
+set(CTOF "${CMAKE_CURRENT_SOURCE_DIR}/mfi" CACHE STRING "CTOF")
 set(BBH_SYSTEM LINUX CACHE STRING "BBH_SYSTEM")
 
 # find perl
@@ -35,15 +35,15 @@ set_target_properties(bbhutil PROPERTIES
 
 add_custom_command(
     OUTPUT bbhutil_f.c
-    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -I${CMAKE_CURRENT_SOURCE_DIR} -o bbhutil_f.i -E ${CMAKE_CURRENT_SOURCE_DIR}/bbhutil.c"
-    COMMAND "${PERL} ${CTOF} bbhutil_f.i bbhutil_f.c ${BBH_SYSTEM} bbhutil"
+    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -I${CMAKE_CURRENT_SOURCE_DIR} -o ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.i -E ${CMAKE_CURRENT_SOURCE_DIR}/bbhutil.c"
+    COMMAND "${PERL} ${CTOF} ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.i ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.c ${BBH_SYSTEM} bbhutil"
 )
 add_custom_command(
     OUTPUT sdf_f.c
-    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -I${CMAKE_CURRENT_SOURCE_DIR} -o sdf_f.i -E ${CMAKE_CURRENT_SOURCE_DIR}/sdf.c"
-    COMMAND "${PERL} ${CTOF} sdf_f.i sdf_f.c ${BBH_SYSTEM} sdf"
+    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -I${CMAKE_CURRENT_SOURCE_DIR} -o ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.i -E ${CMAKE_CURRENT_SOURCE_DIR}/sdf.c"
+    COMMAND "${PERL} ${CTOF} ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.i ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.c ${BBH_SYSTEM} sdf"
 )
-target_sources(bbhutil PRIVATE bbhutil_f.c sdf_f.c)
+target_sources(bbhutil PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.c ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.c)
 
 install(
   TARGETS bbhutil
