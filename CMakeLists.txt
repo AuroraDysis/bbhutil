@@ -47,9 +47,43 @@ add_custom_command(
 )
 target_sources(bbhutil PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.c ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.c)
 
+# Create the config and version files.
+include(CMakePackageConfigHelpers)
+configure_package_config_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/bbhutilConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/bbhutilConfig.cmake"
+  INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/bbhutil"
+)
+write_basic_package_version_file(
+  "${CMAKE_CURRENT_BINARY_DIR}/bbhutilConfigVersion.cmake"
+  VERSION "${PROJECT_VERSION}"
+  COMPATIBILITY SameMajorVersion
+)
+
 install(
   TARGETS bbhutil
   EXPORT bbhutilTargets
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+# Use a namespace because CMake provides better diagnostics for namespaced imported targets.
+export(
+  TARGETS bbhutil
+  NAMESPACE bbhutil::
+  FILE "${CMAKE_CURRENT_BINARY_DIR}/bbhutilTargets.cmake"
+)
+
+# Install version, config and target files.
+install(
+  FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/bbhutilConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/bbhutilConfigVersion.cmake"
+  DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/bbhutil"
+)
+
+install(
+  EXPORT bbhutilTargets
+  NAMESPACE bbhutil::
+  DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/bbhutil"
 )
