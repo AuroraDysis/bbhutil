@@ -36,13 +36,13 @@ get_target_property(bbhutil_compile_opts bbhutil COMPILE_OPTIONS)
 
 add_custom_command(
     OUTPUT bbhutil_f.c
-    COMMAND ${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} ${bbhutil_compile_opts} -I${CMAKE_CURRENT_SOURCE_DIR} -o bbhutil_f.c -E ${CMAKE_CURRENT_SOURCE_DIR}/bbhutil.c
-    COMMAND ${PERL} ${CTOF} bbhutil_f.i bbhutil_f.c ${BBH_SYSTEM} bbhutil
+    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} ${bbhutil_compile_opts} -I${CMAKE_CURRENT_SOURCE_DIR} -o bbhutil_f.c -E ${CMAKE_CURRENT_SOURCE_DIR}/bbhutil.c"
+    COMMAND "${PERL} ${CTOF} bbhutil_f.i bbhutil_f.c ${BBH_SYSTEM} bbhutil"
 )
 add_custom_command(
     OUTPUT sdf_f.c
-    COMMAND ${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS}  ${bbhutil_compile_opts} -I${CMAKE_CURRENT_SOURCE_DIR} -o sdf_f.c -E ${CMAKE_CURRENT_SOURCE_DIR}/sdf.c
-    COMMAND ${PERL} ${CTOF} sdf_f.i sdf_f.c ${BBH_SYSTEM} sdf
+    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS}  ${bbhutil_compile_opts} -I${CMAKE_CURRENT_SOURCE_DIR} -o sdf_f.c -E ${CMAKE_CURRENT_SOURCE_DIR}/sdf.c"
+    COMMAND "${PERL} ${CTOF} sdf_f.i sdf_f.c ${BBH_SYSTEM} sdf"
 )
 target_sources(bbhutil PRIVATE bbhutil_f.c sdf_f.c)
 
