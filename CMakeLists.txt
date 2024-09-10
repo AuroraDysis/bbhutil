@@ -22,14 +22,14 @@ add_custom_command(
     COMMAND "${LEX}" -Pgpar "${CMAKE_CURRENT_SOURCE_DIR}/gpar.l"
 )
 
-set(SOURCES bbhutil.c sdf.c cliser.c gpar.tab.c lex.gpar.c)
+set(SOURCES bbhutil.c sdf.c cliser.c "${CMAKE_CURRENT_BINARY_DIR}/gpar.tab.c" "${CMAKE_CURRENT_BINARY_DIR}/lex.gpar.c")
 
 add_library(bbhutil STATIC ${SOURCES})
 target_include_directories(bbhutil PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
-set(HEADERS bbhutil.h bbhutil_f.h sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h gpar.tab.h)
+set(HEADERS bbhutil.h bbhutil_f.h sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h "${CMAKE_CURRENT_BINARY_DIR}/gpar.tab.h")
 set_target_properties(bbhutil PROPERTIES
     PUBLIC_HEADER "${HEADERS}")
 
