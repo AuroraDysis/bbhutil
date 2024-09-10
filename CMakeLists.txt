@@ -6,22 +6,9 @@ set(CTOF mfi CACHE STRING "CTOF")
 set(BBH_SYSTEM LINUX CACHE STRING "BBH_SYSTEM")
 
 # find perl
-find_program(PERL perl)
-if(NOT PERL)
-    message(FATAL_ERROR "perl not found")
-endif()
-
-# find yacc
-find_program(YACC yacc)
-if(NOT YACC)
-    message(FATAL_ERROR "yacc not found")
-endif()
-
-# find lex
-find_program(LEX lex)
-if(NOT LEX)
-    message(FATAL_ERROR "lex not found")
-endif()
+find_program(PERL perl REQUIRED)
+find_program(YACC yacc REQUIRED)
+find_program(LEX lex REQUIRED)
 
 add_custom_command(
     OUTPUT bbhutil_f.c
