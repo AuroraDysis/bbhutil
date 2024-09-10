@@ -16,7 +16,7 @@ message(STATUS "YACC: ${YACC}")
 message(STATUS "LEX: ${LEX}")
 
 if (NOT PERL OR NOT YACC OR NOT LEX)
-    message(FATAL_ERROR "Perl or YACC or LEX not found, use pregenerated files")
+    message(WARNING "Perl or YACC or LEX not found, use pregenerated files")
     set(USE_GENERATED_FILES ON)
 endif()
 
