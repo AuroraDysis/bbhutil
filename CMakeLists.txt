@@ -14,12 +14,12 @@ find_program(LEX lex REQUIRED)
 
 add_custom_command(
     OUTPUT gpar.tab.c
-    COMMAND ${YACC} -b gpar -p gpar -d gpar.y
+    COMMAND "${YACC}" -b gpar -p gpar -d "${CMAKE_CURRENT_SOURCE_DIR}/gpar.y"
 )
 
 add_custom_command(
     OUTPUT lex.gpar.c
-    COMMAND ${LEX} -Pgpar gpar.l
+    COMMAND "${LEX}" -Pgpar "${CMAKE_CURRENT_SOURCE_DIR}/gpar.l"
 )
 
 set(SOURCES bbhutil.c sdf.c cliser.c gpar.tab.c lex.gpar.c)
@@ -35,13 +35,15 @@ set_target_properties(bbhutil PROPERTIES
 
 add_custom_command(
     OUTPUT bbhutil_f.c
-    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -I${CMAKE_CURRENT_SOURCE_DIR} -o ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.i -E ${CMAKE_CURRENT_SOURCE_DIR}/bbhutil.c"
-    COMMAND "${PERL} ${CTOF} ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.i ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.c ${BBH_SYSTEM} bbhutil"
+    COMMAND "${CMAKE_C_COMPILER}" -E "${CMAKE_C_FLAGS}" -I "${CMAKE_CURRENT_SOURCE_DIR}" -o "${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.i" "${CMAKE_CURRENT_SOURCE_DIR}/bbhutil_f.h"
+    COMMAND "${PERL}" "${CTOF}" "${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.i" "${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.c" "${BBH_SYSTEM}" "bbhutil"
+    VERBATIM COMMAND_EXPAND_LISTS
 )
 add_custom_command(
     OUTPUT sdf_f.c
-    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -I${CMAKE_CURRENT_SOURCE_DIR} -o ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.i -E ${CMAKE_CURRENT_SOURCE_DIR}/sdf.c"
-    COMMAND "${PERL} ${CTOF} ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.i ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.c ${BBH_SYSTEM} sdf"
+    COMMAND "${CMAKE_C_COMPILER}" -E "${CMAKE_C_FLAGS}" -I "${CMAKE_CURRENT_SOURCE_DIR}" -o "${CMAKE_CURRENT_BINARY_DIR}/sdf_f.i" "${CMAKE_CURRENT_SOURCE_DIR}/sdf_f.h"
+    COMMAND "${PERL}" "${CTOF}" "${CMAKE_CURRENT_BINARY_DIR}/sdf_f.i" "${CMAKE_CURRENT_BINARY_DIR}/sdf_f.c" "${BBH_SYSTEM}" "sdf"
+    VERBATIM COMMAND_EXPAND_LISTS
 )
 target_sources(bbhutil PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.c ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.c)
 
