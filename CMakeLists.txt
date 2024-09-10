@@ -12,14 +12,24 @@ find_program(PERL perl REQUIRED)
 find_program(YACC yacc REQUIRED)
 find_program(LEX lex REQUIRED)
 
-set(SOURCES bbhutil.c sdf.c cliser.c)
+add_custom_command(
+    OUTPUT gpar.tab.c
+    COMMAND ${YACC} -b gpar -p gpar -d gpar.y
+)
+
+add_custom_command(
+    OUTPUT lex.gpar.c
+    COMMAND ${LEX} -Pgpar gpar.l
+)
+
+set(SOURCES bbhutil.c sdf.c cliser.c gpar.tab.c lex.gpar.c)
 
 add_library(bbhutil STATIC ${SOURCES})
 target_include_directories(bbhutil PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
-set(HEADERS bbhutil.h bbhutil_f.h sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h)
+set(HEADERS bbhutil.h bbhutil_f.h sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h gpar.tab.h)
 set_target_properties(bbhutil PROPERTIES
     PUBLIC_HEADER "${HEADERS}")
 get_target_property(bbhutil_compile_opts bbhutil COMPILE_OPTIONS)
@@ -35,18 +45,6 @@ add_custom_command(
     COMMAND ${PERL} ${CTOF} sdf_f.i sdf_f.c ${BBH_SYSTEM} sdf
 )
 target_sources(bbhutil PRIVATE bbhutil_f.c sdf_f.c)
-
-add_custom_command(
-    OUTPUT gpar.tab.c
-    COMMAND ${YACC} -b gpar -p gpar -d gpar.y
-)
-
-add_custom_command(
-    OUTPUT lex.gpar.c
-    COMMAND ${LEX} -Pgpar gpar.l
-)
-
-target_sources(bbhutil PRIVATE gpar.tab.h gpar.tab.c lex.gpar.c)
 
 install(
   TARGETS bbhutil
