@@ -7,6 +7,8 @@ include(GNUInstallDirs)
 set(CTOF "${CMAKE_CURRENT_SOURCE_DIR}/mfi" CACHE STRING "CTOF")
 set(BBH_SYSTEM LINUX CACHE STRING "BBH_SYSTEM")
 
+find_library(MATH_LIBRARY m REQUIRED)
+
 # find perl
 find_program(PERL perl REQUIRED)
 find_program(YACC yacc REQUIRED)
@@ -29,6 +31,7 @@ target_include_directories(bbhutil PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
+target_link_libraries(bbhutil PUBLIC ${MATH_LIBRARY})
 set(HEADERS bbhutil.h bbhutil_f.h sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h "${CMAKE_CURRENT_BINARY_DIR}/gpar.tab.h")
 set_target_properties(bbhutil PROPERTIES
     PUBLIC_HEADER "${HEADERS}")
