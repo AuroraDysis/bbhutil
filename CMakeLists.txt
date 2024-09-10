@@ -20,8 +20,8 @@ target_include_directories(bbhutil PUBLIC
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 set(HEADERS bbhutil.h bbhutil_f.h bbhutil_f.i sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h)
-set_target_properties(bbhutil
-    PUBLIC_HEADER ${HEADERS})
+set_target_properties(bbhutil PROPERTIES
+    PUBLIC_HEADER "${HEADERS}")
 get_target_property(bbhutil_compile_opts bbhutil COMPILE_OPTIONS)
 
 add_custom_command(
