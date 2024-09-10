@@ -32,16 +32,15 @@ target_include_directories(bbhutil PUBLIC
 set(HEADERS bbhutil.h bbhutil_f.h sdf.h sdf_f.h sdf_priv.h cliser.h gpar.h gpar.tab.h)
 set_target_properties(bbhutil PROPERTIES
     PUBLIC_HEADER "${HEADERS}")
-get_target_property(bbhutil_compile_opts bbhutil COMPILE_OPTIONS)
 
 add_custom_command(
     OUTPUT bbhutil_f.c
-    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} ${bbhutil_compile_opts} -I${CMAKE_CURRENT_SOURCE_DIR} -o bbhutil_f.c -E ${CMAKE_CURRENT_SOURCE_DIR}/bbhutil.c"
+    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -I${CMAKE_CURRENT_SOURCE_DIR} -o bbhutil_f.c -E ${CMAKE_CURRENT_SOURCE_DIR}/bbhutil.c"
     COMMAND "${PERL} ${CTOF} bbhutil_f.i bbhutil_f.c ${BBH_SYSTEM} bbhutil"
 )
 add_custom_command(
     OUTPUT sdf_f.c
-    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS}  ${bbhutil_compile_opts} -I${CMAKE_CURRENT_SOURCE_DIR} -o sdf_f.c -E ${CMAKE_CURRENT_SOURCE_DIR}/sdf.c"
+    COMMAND "${CMAKE_C_COMPILER} ${CMAKE_C_FLAGS} -I${CMAKE_CURRENT_SOURCE_DIR} -o sdf_f.c -E ${CMAKE_CURRENT_SOURCE_DIR}/sdf.c"
     COMMAND "${PERL} ${CTOF} sdf_f.i sdf_f.c ${BBH_SYSTEM} sdf"
 )
 target_sources(bbhutil PRIVATE bbhutil_f.c sdf_f.c)
