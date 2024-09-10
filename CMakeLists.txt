@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 project(bbhutil LANGUAGES C)
 
-set(CTOF mfi CACHE STRING "CTOF")
+set(CTOF ${CMAKE_CURRENT_SOURCE_DIR}/mfi CACHE STRING "CTOF")
 set(BBH_SYSTEM LINUX CACHE STRING "BBH_SYSTEM")
 
 # find perl
