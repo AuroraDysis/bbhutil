@@ -107,7 +107,7 @@ extern int gpardebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 27 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 27 "gpar.y"
 
   int inum;
   double num;

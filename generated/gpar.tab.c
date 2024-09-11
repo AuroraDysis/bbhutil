@@ -74,7 +74,7 @@
 #define yychar          gparchar
 
 /* First part of user prologue.  */
-#line 1 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 1 "gpar.y"
 
 /* grammar for get_param */
 /* $Header: /home/cvs/rnpl/src/gpar.y,v 1.1.1.1 2013/07/09 00:38:27 cvs Exp $ */
@@ -1172,7 +1172,7 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* assignment: LONG  */
-#line 51 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 51 "gpar.y"
                   { 
               gotit=0; 
             }
@@ -1180,7 +1180,7 @@ yyreduce:
     break;
 
   case 3: /* assignment: DOUBLE  */
-#line 54 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 54 "gpar.y"
             { 
       gotit=0; 
     }
@@ -1188,7 +1188,7 @@ yyreduce:
     break;
 
   case 4: /* assignment: STRING  */
-#line 57 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 57 "gpar.y"
             { 
       gotit=0; 
     }
@@ -1196,7 +1196,7 @@ yyreduce:
     break;
 
   case 5: /* assignment: IVEC  */
-#line 60 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 60 "gpar.y"
           { 
       gotit=0; 
     }
@@ -1204,7 +1204,7 @@ yyreduce:
     break;
 
   case 6: /* assignment: FVEC  */
-#line 63 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 63 "gpar.y"
           { 
       gotit=0; 
     }
@@ -1212,7 +1212,7 @@ yyreduce:
     break;
 
   case 7: /* assignment: LONG IDEN becomes inumber  */
-#line 66 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 66 "gpar.y"
                                {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1223,7 +1223,7 @@ yyreduce:
     break;
 
   case 8: /* assignment: DOUBLE IDEN becomes number  */
-#line 72 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 72 "gpar.y"
                                 {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1234,7 +1234,7 @@ yyreduce:
     break;
 
   case 9: /* assignment: STRING IDEN becomes string  */
-#line 78 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 78 "gpar.y"
                                 {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1245,7 +1245,7 @@ yyreduce:
     break;
 
   case 10: /* assignment: IVEC IDEN becomes ivec  */
-#line 84 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 84 "gpar.y"
                             {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1256,7 +1256,7 @@ yyreduce:
     break;
 
   case 11: /* assignment: FVEC IDEN becomes fvec  */
-#line 90 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 90 "gpar.y"
                             {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1267,7 +1267,7 @@ yyreduce:
     break;
 
   case 12: /* assignment: LONG IDEN becomes file  */
-#line 96 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 96 "gpar.y"
                             {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1278,7 +1278,7 @@ yyreduce:
     break;
 
   case 13: /* assignment: DOUBLE IDEN becomes file  */
-#line 102 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 102 "gpar.y"
                               {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1289,7 +1289,7 @@ yyreduce:
     break;
 
   case 14: /* assignment: STRING IDEN becomes file  */
-#line 108 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 108 "gpar.y"
                               {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1300,7 +1300,7 @@ yyreduce:
     break;
 
   case 15: /* assignment: IVEC IDEN becomes file  */
-#line 114 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 114 "gpar.y"
                             {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1311,7 +1311,7 @@ yyreduce:
     break;
 
   case 16: /* assignment: FVEC IDEN becomes file  */
-#line 120 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 120 "gpar.y"
                             {
       myasgn.name=(yyvsp[-2].str);
       myasgn.val=(yyvsp[0].val);
@@ -1322,7 +1322,7 @@ yyreduce:
     break;
 
   case 17: /* assignment: LONG IDEN becomes OBRACK inumber_list CBRACK  */
-#line 126 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 126 "gpar.y"
                                                   {
       myasgn.name=(yyvsp[-4].str);
       myasgn.vl=(yyvsp[-1].vl);
@@ -1333,7 +1333,7 @@ yyreduce:
     break;
 
   case 18: /* assignment: DOUBLE IDEN becomes OBRACK number_list CBRACK  */
-#line 132 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 132 "gpar.y"
                                                    {
       myasgn.name=(yyvsp[-4].str);
       myasgn.vl=(yyvsp[-1].vl);
@@ -1344,7 +1344,7 @@ yyreduce:
     break;
 
   case 19: /* assignment: STRING IDEN becomes OBRACK string_list CBRACK  */
-#line 138 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 138 "gpar.y"
                                                    {
       myasgn.name=(yyvsp[-4].str);
       myasgn.vl=(yyvsp[-1].vl);
@@ -1355,7 +1355,7 @@ yyreduce:
     break;
 
   case 22: /* inumber: INUM  */
-#line 149 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 149 "gpar.y"
                {
           (yyval.val).type=INUM;
           (yyval.val).data.inum=(yyvsp[0].inum);
@@ -1364,7 +1364,7 @@ yyreduce:
     break;
 
   case 23: /* inumber: MINUS INUM  */
-#line 153 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 153 "gpar.y"
                 {
       (yyval.val).type=INUM;
       (yyval.val).data.inum=-(yyvsp[0].inum);
@@ -1373,7 +1373,7 @@ yyreduce:
     break;
 
   case 24: /* number: NUM  */
-#line 159 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 159 "gpar.y"
               {
           (yyval.val).type=NUM;
           (yyval.val).data.num=(yyvsp[0].num);
@@ -1382,7 +1382,7 @@ yyreduce:
     break;
 
   case 25: /* number: MINUS NUM  */
-#line 163 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 163 "gpar.y"
                {
       (yyval.val).type=NUM;
       (yyval.val).data.num=-(yyvsp[0].num);
@@ -1391,7 +1391,7 @@ yyreduce:
     break;
 
   case 26: /* number: INUM  */
-#line 167 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 167 "gpar.y"
           {
       (yyval.val).type=NUM;
       (yyval.val).data.num=(double)(yyvsp[0].inum);
@@ -1400,7 +1400,7 @@ yyreduce:
     break;
 
   case 27: /* number: MINUS INUM  */
-#line 171 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 171 "gpar.y"
                 {
       (yyval.val).type=NUM;
       (yyval.val).data.num=(double)(-(yyvsp[0].inum));
@@ -1409,7 +1409,7 @@ yyreduce:
     break;
 
   case 28: /* string: STR  */
-#line 177 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 177 "gpar.y"
              {
           (yyval.val).type=STR;
           (yyval.val).data.str=(yyvsp[0].str);
@@ -1418,7 +1418,7 @@ yyreduce:
     break;
 
   case 29: /* ivec: ival  */
-#line 183 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 183 "gpar.y"
             {
         (yyval.val).type=IVEC;
         (yyval.val).data.ivec=new_ivel_list();
@@ -1431,7 +1431,7 @@ yyreduce:
     break;
 
   case 30: /* ivec: ival MINUS ival  */
-#line 191 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 191 "gpar.y"
                      {
       (yyval.val).type=IVEC;
       (yyval.val).data.ivec=new_ivel_list();
@@ -1444,7 +1444,7 @@ yyreduce:
     break;
 
   case 31: /* ivec: ival MINUS ival DIVIDE INUM  */
-#line 199 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 199 "gpar.y"
                                  {
       (yyval.val).type=IVEC;
       (yyval.val).data.ivec=new_ivel_list();
@@ -1457,7 +1457,7 @@ yyreduce:
     break;
 
   case 32: /* ivec: ivec COMMA ival  */
-#line 207 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 207 "gpar.y"
                      {
       (yyval.val).type=IVEC;
       (yyval.val).data.ivec=new_ivel_list();
@@ -1471,7 +1471,7 @@ yyreduce:
     break;
 
   case 33: /* ivec: ivec COMMA ival MINUS ival  */
-#line 216 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 216 "gpar.y"
                                 {
       (yyval.val).type=IVEC;
       (yyval.val).data.ivec=new_ivel_list();
@@ -1485,7 +1485,7 @@ yyreduce:
     break;
 
   case 34: /* ivec: ivec COMMA ival MINUS ival DIVIDE INUM  */
-#line 225 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 225 "gpar.y"
                                             {
       (yyval.val).type=IVEC;
       (yyval.val).data.ivec=new_ivel_list();
@@ -1499,7 +1499,7 @@ yyreduce:
     break;
 
   case 35: /* fvec: fval  */
-#line 236 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 236 "gpar.y"
             {
         (yyval.val).type=FVEC;
         (yyval.val).data.fvec=new_fvel_list();
@@ -1512,7 +1512,7 @@ yyreduce:
     break;
 
   case 36: /* fvec: fval MINUS fval DIVIDE INUM  */
-#line 244 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 244 "gpar.y"
                                  {
       (yyval.val).type=FVEC;
       (yyval.val).data.fvec=new_fvel_list();
@@ -1525,7 +1525,7 @@ yyreduce:
     break;
 
   case 37: /* fvec: fvec COMMA fval  */
-#line 252 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 252 "gpar.y"
                     {
       (yyval.val).type=FVEC;
       (yyval.val).data.fvec=new_fvel_list();
@@ -1539,7 +1539,7 @@ yyreduce:
     break;
 
   case 38: /* fvec: fvec COMMA fval MINUS fval DIVIDE INUM  */
-#line 261 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 261 "gpar.y"
                                             {
       (yyval.val).type=FVEC;
       (yyval.val).data.fvec=new_fvel_list();
@@ -1553,7 +1553,7 @@ yyreduce:
     break;
 
   case 39: /* file: FNAME  */
-#line 272 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 272 "gpar.y"
             {
         (yyval.val).type=FNAME;
         (yyval.val).data.str=(yyvsp[0].str);
@@ -1562,7 +1562,7 @@ yyreduce:
     break;
 
   case 40: /* inumber_list: inumber  */
-#line 278 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 278 "gpar.y"
                        {
                 (yyval.vl)=new_value_list();
                 (yyval.vl)->val=(yyvsp[0].val);
@@ -1572,7 +1572,7 @@ yyreduce:
     break;
 
   case 41: /* inumber_list: inumber_list inumber  */
-#line 283 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 283 "gpar.y"
                          {
       (yyval.vl)=new_value_list();
       (yyval.vl)->val=(yyvsp[0].val);
@@ -1583,7 +1583,7 @@ yyreduce:
     break;
 
   case 42: /* number_list: number  */
-#line 291 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 291 "gpar.y"
                      {
                 (yyval.vl)=new_value_list();
                 (yyval.vl)->val=(yyvsp[0].val);
@@ -1593,7 +1593,7 @@ yyreduce:
     break;
 
   case 43: /* number_list: number_list number  */
-#line 296 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 296 "gpar.y"
                        {
       (yyval.vl)=new_value_list();
       (yyval.vl)->val=(yyvsp[0].val);
@@ -1604,7 +1604,7 @@ yyreduce:
     break;
 
   case 44: /* string_list: string  */
-#line 304 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 304 "gpar.y"
                      {
                 (yyval.vl)=new_value_list();
                 (yyval.vl)->val=(yyvsp[0].val);
@@ -1614,7 +1614,7 @@ yyreduce:
     break;
 
   case 45: /* string_list: string_list string  */
-#line 309 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 309 "gpar.y"
                        {
       (yyval.vl)=new_value_list();
       (yyval.vl)->val=(yyvsp[0].val);
@@ -1625,7 +1625,7 @@ yyreduce:
     break;
 
   case 46: /* ival: INUM  */
-#line 317 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 317 "gpar.y"
            {
         (yyval.inum)=(yyvsp[0].inum);
       }
@@ -1633,7 +1633,7 @@ yyreduce:
     break;
 
   case 47: /* ival: TIMES  */
-#line 320 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 320 "gpar.y"
            {
       (yyval.inum)=-1;
     }
@@ -1641,7 +1641,7 @@ yyreduce:
     break;
 
   case 48: /* fval: NUM  */
-#line 325 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 325 "gpar.y"
             {
           (yyval.num)=(yyvsp[0].num);
         }
@@ -1649,7 +1649,7 @@ yyreduce:
     break;
 
   case 49: /* fval: MINUS NUM  */
-#line 328 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 328 "gpar.y"
                {
       (yyval.num)=-(yyvsp[0].num);
     }
@@ -1657,7 +1657,7 @@ yyreduce:
     break;
 
   case 50: /* fval: INUM  */
-#line 331 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 331 "gpar.y"
           {
       (yyval.num)=(double)(yyvsp[0].inum);
     }
@@ -1665,7 +1665,7 @@ yyreduce:
     break;
 
   case 51: /* fval: MINUS INUM  */
-#line 334 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 334 "gpar.y"
                 {
       (yyval.num)=(double)(-(yyvsp[0].inum));
     }
@@ -1866,7 +1866,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 339 "/home/auroradysis/code/rnpl_bbhutil/gpar.y"
+#line 339 "gpar.y"
 
 
 ivel_list * new_ivel_list()

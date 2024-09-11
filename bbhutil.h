@@ -6,7 +6,7 @@
 
 #include <sdf.h>
 #include <sys/types.h>
-#include <sys/sysmacros.h>
+#include <ctype.h>
 
 #define MAXRANK 5
 

@@ -36,4 +36,5 @@ typedef struct {
   value_list *vl;
 } assignment;
 
-
+int gparlex(void);
+void gparerror(const char *msg);

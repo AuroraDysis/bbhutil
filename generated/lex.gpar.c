@@ -778,8 +778,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
-#line 2 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 1 "gpar.l"
+#line 2 "gpar.l"
 /* lexer for get_param */
 /* $Header: /home/cvs/rnpl/src/gpar.l,v 1.1.1.1 2013/07/09 00:38:27 cvs Exp $ */
 /* Copyright (c) 1998 by Robert Marsa */
@@ -1022,10 +1022,10 @@ YY_DECL
 		}
 
 	{
-#line 27 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 27 "gpar.l"
 
 
-#line 30 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 30 "gpar.l"
   extern int sg_param_type;
   extern int first_tok;
   
@@ -1098,7 +1098,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 42 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 42 "gpar.l"
 ; /* ignore whitespace */
 	YY_BREAK
 case 2:
@@ -1108,13 +1108,13 @@ YY_LINENO_REWIND_TO(yy_cp - 1);
 (yy_c_buf_p) = yy_cp -= 1;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 44 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 44 "gpar.l"
 ; /* ignore lines without = */
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 46 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 46 "gpar.l"
 ;
 	YY_BREAK
 case 4:
@@ -1122,12 +1122,12 @@ case 4:
 (yy_c_buf_p) = yy_cp -= 1;
 YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
-#line 48 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 48 "gpar.l"
 ; /* ignore comments */
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 50 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 50 "gpar.l"
 {
   gparlval.inum=ASSIGNOP;
   return ASSIGNOP;
@@ -1135,7 +1135,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 55 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 55 "gpar.l"
 {
   gparlval.inum=EQUALS;
   return EQUALS;
@@ -1143,7 +1143,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 60 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 60 "gpar.l"
 {
   gparlval.inum=MINUS;
   return MINUS;
@@ -1151,7 +1151,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 65 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 65 "gpar.l"
 {
   gparlval.inum=TIMES;
   return TIMES;
@@ -1159,7 +1159,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 70 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 70 "gpar.l"
 {
   gparlval.inum=DIVIDE;
   return DIVIDE;
@@ -1167,7 +1167,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 75 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 75 "gpar.l"
 {
   gparlval.inum=OBRACK;
   return OBRACK;
@@ -1175,7 +1175,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 80 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 80 "gpar.l"
 {
   gparlval.inum=CBRACK;
   return CBRACK;
@@ -1183,7 +1183,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 85 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 85 "gpar.l"
 {
   gparlval.inum=COMMA;
   return COMMA;
@@ -1191,7 +1191,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 90 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 90 "gpar.l"
 {
   gparlval.inum = atoi((const char *)gpartext);
   return INUM;
@@ -1199,7 +1199,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 95 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 95 "gpar.l"
 {
   sscanf((const char *)gpartext,"%lf",&gparlval.num);
   return NUM;
@@ -1207,7 +1207,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 100 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 100 "gpar.l"
 {
   gparlval.str=(char *)malloc(strlen((const char *)gpartext)+1);
   strcpy(gparlval.str,(const char *)gpartext);
@@ -1216,7 +1216,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 106 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 106 "gpar.l"
 {
   gparlval.str = (char *)malloc(strlen((const char *)gpartext)-1);
   strncpy(gparlval.str,(const char *)gpartext+1,strlen((const char *)gpartext)-2);
@@ -1226,7 +1226,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 113 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 113 "gpar.l"
 {
   gparlval.str=(char *)malloc(strlen((const char *)gpartext-1));
   strcpy(gparlval.str,(const char *)gpartext+2);
@@ -1235,12 +1235,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 119 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 119 "gpar.l"
 ; /* Swallow everything else; otherwise chars are echoed to stdout */
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 121 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 121 "gpar.l"
 ECHO;
 	YY_BREAK
 #line 1247 "lex.gpar.c"
@@ -2251,7 +2251,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 121 "/home/auroradysis/code/rnpl_bbhutil/gpar.l"
+#line 121 "gpar.l"
 
 
 extern char *sg_param_ptr, *sg_param_end;
