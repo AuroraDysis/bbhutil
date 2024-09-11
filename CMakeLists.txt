@@ -2,6 +2,16 @@ cmake_minimum_required(VERSION 3.13)
 
 project(bbhutil LANGUAGES C VERSION 1.0.0)
 
+# Enable IPO/LTO if supported
+include(CheckIPOSupported)
+check_ipo_supported(RESULT IPO_SUPPORTED OUTPUT IPO_OUTPUT)
+if(IPO_SUPPORTED)
+    message(STATUS "IPO/LTO enabled")
+    set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
+else()
+    message(STATUS "IPO/LTO not supported: ${IPO_OUTPUT}")
+endif()
+
 include(GNUInstallDirs)
 
 option(USE_GENERATED_FILES "Use pregenerated files" OFF)
