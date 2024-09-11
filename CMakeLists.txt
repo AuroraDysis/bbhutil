@@ -76,6 +76,8 @@ add_custom_command(
 endif()
 target_sources(bbhutil PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/bbhutil_f.c ${CMAKE_CURRENT_BINARY_DIR}/sdf_f.c)
 
+add_library(RNPL::bbhutil ALIAS bbhutil)
+
 # Create the config and version files.
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
