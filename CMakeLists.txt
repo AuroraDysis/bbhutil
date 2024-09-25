@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.13)
 
 project(bbhutil LANGUAGES C VERSION 1.0.0)
 
+option(BUILD_TESTS "Build tests" ON)
+
+include(GNUInstallDirs)
+
 # Enable IPO/LTO if supported
 include(CheckIPOSupported)
 check_ipo_supported(RESULT IPO_SUPPORTED OUTPUT IPO_OUTPUT)
@@ -128,3 +132,7 @@ install(
   NAMESPACE RNPL::
   DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/RNPL"
 )
+
+if (BUILD_TESTS)
+    add_subdirectory(tests)
+endif()
