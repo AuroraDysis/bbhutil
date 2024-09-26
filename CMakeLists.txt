@@ -16,6 +16,8 @@ else()
     message(STATUS "IPO/LTO not supported: ${IPO_OUTPUT}")
 endif()
 
+set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fno-second-underscore")
+
 include(GNUInstallDirs)
 
 option(USE_GENERATED_FILES "Use pregenerated files" OFF)
